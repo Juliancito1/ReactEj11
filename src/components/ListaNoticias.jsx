@@ -1,10 +1,10 @@
 import { ListGroup } from "react-bootstrap";
 import Cardnoticia from "./Cardnoticia";
 
-const ListaNoticias = () => {
+const ListaNoticias = ({noticias}) => {
     return (
-        <section className="ms-5 my-4">
-            <Cardnoticia></Cardnoticia>
+        <section className="my-4">
+            <Cardnoticia noticias={noticias}></Cardnoticia>
         </section>
     );
 };

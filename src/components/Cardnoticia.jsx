@@ -1,22 +1,23 @@
 import { Card, Button, Col, Row } from "react-bootstrap";
 
-const Cardnoticia = () => {
+const Cardnoticia = ({noticias}) => {
     return (
-      <section>
-        <Row className="ms-5 my-4 container">
-        <Col md={4} lg={3}>
+      <section className="container">
+        <Row className="my-2">
+          {noticias.map((noticia,indice) => (
+            <Col md={4} lg={3} key={indice}>
         <Card className="my-3"> 
-      <Card.Img variant="top" src="https://c8.alamy.com/compes/e4g70x/noticias-e4g70x.jpg" />
+      <Card.Img variant="top" src={noticia.image_url} alt="imagen noticia"/>
       <Card.Body>
-        <Card.Title>Diario J</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+        <Card.Title>{noticia.title}</Card.Title>
+        <Card.Text className="text-truncate">
+          {noticia.description}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button variant="primary" className="disabled">Ver Noticia Completa</Button>
       </Card.Body>
     </Card>
         </Col>
+          ))}
         </Row>
       </section>
     );
