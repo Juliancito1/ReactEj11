@@ -6,10 +6,7 @@ const Formulario = () => {
     const[noticias , setNoticias] = useState([])
     const[categoria, setCategoria] = useState('');
     useEffect(() => {
-        if (noticias.length === 0) {
-            consultarAPI();
-          }
-          setNoticias([])
+        consultarAPI();
     },[categoria])
 
 
@@ -18,7 +15,7 @@ const Formulario = () => {
             if(categoria !== ""){
                 const respuesta = await fetch(`https://newsdata.io/api/1/news?apikey=pub_2386188cc0b2582136aefe10a1efcae0a03eb&category=${categoria}`)
                 const dato = await respuesta.json()
-                setNoticias(...noticias,dato.results)
+                setNoticias(dato.results)
                 }
             }
         catch (error) {
